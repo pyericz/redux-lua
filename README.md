@@ -18,7 +18,7 @@ Env.setDebug(false)
 ```
 
 ### Null vs. nil
-`nil` is not allowed to use as reducer result. If you want any reducer to hold no value, you can return `Null` instead of `nil`.
+`nil` is not allowed as reducer result. If you want any reducer to hold no value, you can return `Null` instead of `nil`.
 ```lua
 local Null = require 'lredux.null'
 ```
