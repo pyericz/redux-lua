@@ -2,6 +2,7 @@
 A redux implementation using Lua language.
 
 ## Install 
+redux-lua can be installed using luarocks ([http://luarocks.org/modules/pyericz/lredux](http://luarocks.org/modules/pyericz/lredux)):
 ```
 luarocks install lredux
 ```
