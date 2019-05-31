@@ -12,7 +12,9 @@ Here is an example of profile updating. To get more usages, please checkout [exa
 
 ### Actions (profile)
 ```lua
--- actions/profile.lua
+--[[
+    actions/profile.lua
+--]]
 local actions = {}
 
 function actions.updateName(name)
@@ -40,7 +42,9 @@ return actions
 
 ### Reducer (profile)
 ```lua
--- reducers/profile.lua
+--[[
+    reducers/profile.lua
+--]]
 local Object = require 'lredux.object'
 local Null = require 'lredux.null'
 
@@ -74,7 +78,9 @@ end
 
 ### Combine reducers
 ```lua
--- reducers/index.lua
+--[[
+    reducers/index.lua
+--]]
 local combineReducers = require 'lredux.combineReducers'
 local profile = require 'reducers.profile'
 
@@ -85,7 +91,9 @@ return combineReducers({
 
 ### Create store
 ```lua
--- store.lua
+--[[
+    store.lua
+--]]
 local createStore = require 'lredux.createStore'
 local reducers = require 'reducers.index'
 
@@ -94,9 +102,11 @@ local store = createStore(reducers)
 return store
 ```
 
-### Use middlewares
+### Create store with middlewares
 ```lua
--- store.lua
+--[[
+    store.lua
+--]]
 local createStore = require 'lredux.createStore'
 local reducers = require 'reducers.index'
 local applyMiddleware = require 'lredux.applyMiddleware'
@@ -108,7 +118,9 @@ return store
 ```
 ### Dispatch & Subscription
 ```lua
--- main.lua
+--[[
+    main.lua
+--]]
 local ProfileActions = require 'actions.profile'
 local Inspect = require 'inspect'
 local store = require 'store'
