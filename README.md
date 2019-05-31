@@ -10,7 +10,7 @@ luarocks install lredux
 ## Usage
 Here is an example of profile updating. To get more usages, please checkout [examples](https://github.com/pyericz/redux-lua/tree/master/examples). 
 
-### Actions (profile)
+### Define actions
 ```lua
 --[[
     actions/profile.lua
@@ -40,7 +40,7 @@ end
 return actions
 ```
 
-### Reducer (profile)
+### Define reducer
 ```lua
 --[[
     reducers/profile.lua
