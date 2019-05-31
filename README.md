@@ -65,11 +65,13 @@ local handlers = {
             name = action.name
         })
     end,
+    
     ["PROFILE_UPDATE_AGE"] = function (state, action)
         return Object.assign(initState, state, {
             age = action.age
         })
     end,
+    
     ["PROFILE_REMOVE"] = function (state, action)
         return Null
     end,
