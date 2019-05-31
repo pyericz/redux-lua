@@ -108,7 +108,7 @@ local Inspect = require 'inspect'
 local store = require 'store'
 
 local function callback()
-    print(Inspect(store.getState())
+    print(Inspect(store.getState()))
 end
 
 -- subscribe dispatching
