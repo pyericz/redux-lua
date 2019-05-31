@@ -31,9 +31,15 @@ function actions.updateAge(age)
     }
 end
 
+function actions.remove()
+    return {
+        type = "PROFILE_REMOVE"
+    }
+end
+
 function actions.thunkCall()
     return function (dispatch, state)
-        return dispatch(actions.updateAge(3))
+        return dispatch(actions.remove())
     end
 end
 
@@ -63,6 +69,9 @@ local handlers = {
         return Object.assign(initState, state, {
             age = action.age
         })
+    end,
+    ["PROFILE_REMOVE"] = function (state, action)
+        return Null
     end,
 }
 
