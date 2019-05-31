@@ -1,8 +1,8 @@
 # redux-lua
-Originally, redux is a predictable state container for JavaScript apps. From now on, you can use all the redux features on your Lua projects. Try it out!
+Originally, redux is a predictable state container for JavaScript apps. From now on, you can use all the redux features on your Lua projects. Try it out! :-D
 
 ## Install 
-redux-lua can be installed using luarocks ([http://luarocks.org/modules/pyericz/lredux](http://luarocks.org/modules/pyericz/lredux)):
+redux-lua can be installed using LuaRocks ([http://luarocks.org/modules/pyericz/lredux](http://luarocks.org/modules/pyericz/lredux)):
 ```
 luarocks install lredux
 ```
