@@ -7,7 +7,7 @@ local unpack = unpack or table.unpack
 local print = _G["print"]
 
 local function prettyPrint(tag, ...)
-    if Env.isDebug() then return end
+    if not Env.isDebug() then return end
     local msgs = {...}
     for i=1, #msgs do
         if type(msgs[i]) ~= 'string' then
@@ -19,7 +19,7 @@ local function prettyPrint(tag, ...)
 end
 
 local function prettyPrintTrace(tag, ...)
-    if Env.isDebug() then return end
+    if not Env.isDebug() then return end
     local msgs = {...}
     for i=1, #msgs do
         if type(msgs[i]) ~= 'string' then
