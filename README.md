@@ -133,11 +133,11 @@ return store
     main.lua
 --]]
 local ProfileActions = require 'actions.profile'
-local Inspect = require 'inspect'
+local inspect = require 'inspect'
 local store = require 'store'
 
 local function callback()
-    print(Inspect(store.getState()))
+    print(inspect(store.getState()))
 end
 
 -- subscribe dispatching
