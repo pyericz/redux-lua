@@ -1,7 +1,8 @@
 package = "lredux"
 version = "0.1.0-1"
 source = {
-    url = "git+https://github.com/pyericz/redux-lua"
+    url = "git+https://github.com/pyericz/redux-lua",
+    tag = "v0.1.0"
 }
 description = {
     summary = "A redux implementation using Lua language.",
