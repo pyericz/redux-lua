@@ -14,4 +14,10 @@ function actions.updateAge(age)
     }
 end
 
+function actions.thunkCall()
+    return function (dispatch, state)
+        return dispatch(actions.updateAge(3))
+    end
+end
+
 return actions

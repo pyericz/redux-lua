@@ -1,5 +1,8 @@
 local createStore = require 'lredux.createStore'
 local reducers = require 'reducers.index'
-local store = createStore(reducers)
+local applyMiddleware = require 'lredux.applyMiddleware'
+local middlewares = require 'middlewares.index'
+
+local store = createStore(reducers, applyMiddleware(table.unpack(middlewares)))
 
 return store
