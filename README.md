@@ -8,7 +8,120 @@ luarocks install lredux
 ```
 
 ## Usage
-Checkout [examples](https://github.com/pyericz/redux-lua/tree/master/examples) for more ways to use it.
+Here is an example of profile update. To get more uses, please checkout [examples](https://github.com/pyericz/redux-lua/tree/master/examples). 
+
+### Actions (profile)
+```lua
+local actions = {}
+
+function actions.updateName(name)
+    return {
+        type = "PROFILE_UPDATE_NAME",
+        name = name
+    }
+end
+
+function actions.updateAge(age)
+    return {
+        type = "PROFILE_UPDATE_AGE",
+        age = age
+    }
+end
+
+function actions.thunkCall()
+    return function (dispatch, state)
+        return dispatch(actions.updateAge(3))
+    end
+end
+
+return actions
+```
+
+### Reducer (profile)
+```lua
+local Object = require 'lredux.object'
+local Null = require 'lredux.null'
+
+local initState = {
+    name = '',
+    age = 0
+}
+
+local handlers = {
+    ["PROFILE_UPDATE_NAME"] = function (state, action)
+        return Object.assign(initState, state, {
+            name = action.name
+        })
+    end,
+    ["PROFILE_UPDATE_AGE"] = function (state, action)
+        return Object.assign(initState, state, {
+            age = action.age
+        })
+    end,
+}
+
+return function (state, action)
+    state = state or Null
+    local handler = handlers[action.type]
+    if handler then
+        return handler(state, action)
+    end
+    return state
+end
+```
+
+### Combine reducers
+```lua
+local combineReducers = require 'lredux.combineReducers'
+local profile = require 'reducers.profile'
+
+return combineReducers({
+    profile = profile
+})
+```
+
+### Create store
+```lua
+local createStore = require 'lredux.createStore'
+local reducers = require 'reducers.index'
+
+local store = createStore(reducers)
+
+return store
+```
+
+### Use middlewares
+```lua
+local createStore = require 'lredux.createStore'
+local reducers = require 'reducers.index'
+local applyMiddleware = require 'lredux.applyMiddleware'
+local middlewares = require 'middlewares.index'
+
+local store = createStore(reducers, applyMiddleware(table.unpack(middlewares)))
+
+return store
+```
+### Dispatch & Subscription
+```lua
+local ProfileActions = require 'actions.profile'
+local Inspect = require 'inspect'
+local store = require 'store'
+
+local function callback()
+    print(Inspect(store.getState())
+end
+
+-- subscribe dispatching
+local unsubscribe = store.subscribe(callback)
+
+-- dispatch actions
+store.dispatch(ProfileActions.updateName('Jack'))
+store.dispatch(ProfileActions.updateAge(10))
+store.dispatch(ProfileActions.thunkCall())
+
+-- unsubscribe
+unsubscribe()
+```
 
 ### Debug mode
 redux-lua is on `Debug` mode by default. Messages with errors and warnings will be output when `Debug` mode is on. Use following code snippets to turn it off.
