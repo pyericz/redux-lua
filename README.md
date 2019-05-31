@@ -8,7 +8,7 @@ luarocks install lredux
 ```
 
 ## Usage
-Here is an example of profile update. To get more uses, please checkout [examples](https://github.com/pyericz/redux-lua/tree/master/examples). 
+Here is an example of profile updating. To get more usages, please checkout [examples](https://github.com/pyericz/redux-lua/tree/master/examples). 
 
 ### Actions (profile)
 ```lua
