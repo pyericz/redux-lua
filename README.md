@@ -156,6 +156,7 @@ unsubscribe()
 redux-lua is on `Debug` mode by default. Messages with errors and warnings will be output when `Debug` mode is on. Use following code snippets to turn it off.
 ```lua
 local Env = require 'lredux.env'
+
 Env.setDebug(false)
 ```
 
