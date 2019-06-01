@@ -12,17 +12,21 @@ before_install:
   - export PATH=$PATH:$PWD/lua_install/bin
   
 install:
-  - luarocks install lredux
+  - luarocks install inspect
+  - luarocks install luacheck
+  - luarocks install busted
+  - luarocks install luacov
+  - luarocks install luacov-coveralls
+
+script:
+  - luacheck --std max+busted *.lua spec
+  - busted --verbose --coverage
 
 branches:
   only:
     - master
 
 script:
-  - cd examples
-  - lua5.1 main.lua
-  - lua5.2 main.lua
-  - lua5.3 main.lua
 
 notifications:
   email:
