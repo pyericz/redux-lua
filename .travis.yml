@@ -26,8 +26,6 @@ branches:
   only:
     - master
 
-script:
-
 notifications:
   email:
     on_success: change
