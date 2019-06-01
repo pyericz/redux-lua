@@ -1,5 +1,5 @@
-local logger = require 'middlewares.logger'
-local thunk = require 'middlewares.thunk'
+local logger = require 'examples.middlewares.logger'
+local thunk = require 'examples.middlewares.thunk'
 
 local middlewares = {
     thunk,

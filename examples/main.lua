@@ -1,6 +1,6 @@
-local ProfileActions = require 'actions.profile'
+local ProfileActions = require 'examples.actions.profile'
 local inspect = require 'inspect'
-local store = require 'store'
+local store = require 'examples.store'
 
 local function callback()
     print(inspect(store.getState()))
