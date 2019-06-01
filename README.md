@@ -1,5 +1,6 @@
 # redux-lua
 [![Build Status](https://api.travis-ci.org/pyericz/redux-lua.svg?branch=master)](https://travis-ci.org/pyericz/redux-lua)
+
 Originally, [redux](https://redux.js.org/) is a predictable state container for JavaScript apps. From now on, all the redux features are available on your Lua projects. Try it out! :-D
 
 ## Install 
