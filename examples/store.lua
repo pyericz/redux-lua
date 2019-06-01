@@ -3,6 +3,8 @@ local reducers = require 'examples.reducers.index'
 local applyMiddleware = require 'lredux.applyMiddleware'
 local middlewares = require 'examples.middlewares.index'
 
-local store = createStore(reducers, applyMiddleware(table.unpack(middlewares)))
+local unpack = unpack or table.unpack
+
+local store = createStore(reducers, applyMiddleware(unpack(middlewares)))
 
 return store
