@@ -1,6 +1,9 @@
 language: c
 sudo: false
 
+install:
+  - luarocks install lredux
+
 addons:
   apt:
     packages:
@@ -13,6 +16,12 @@ branches:
     - master
 
 script:
-  - lua5.1 examples/main.lua
-  - lua5.2 examples/main.lua
-  - lua5.3 examples/main.lua
+  - cd examples
+  - lua5.1 main.lua
+  - lua5.2 main.lua
+  - lua5.3 main.lua
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
