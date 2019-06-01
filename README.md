@@ -114,6 +114,45 @@ return store
 ```
 
 ### Create store with middlewares
+Here is an example about how to define a middleware.
+```lua
+--[[
+    middlewares/logger.lua
+--]]
+local Logger = require 'lredux.utils.logger'
+
+local function logger(store)
+    return function (nextDispatch)
+        return function (action)
+            Logger.info('WILL DISPATCH:', action)
+            local ret = nextDispatch(action)
+            Logger.info('STATE AFTER DISPATCH:', store.getState())
+            return ret
+
+        end
+    end
+end
+
+return logger
+```
+
+Compose all defined middlewares to `middlewares` array.
+```lua
+--[[
+    middlewares/index.lua
+--]]
+local logger = require 'middlewares.logger'
+local thunk = require 'middlewares.thunk'
+
+local middlewares = {
+    thunk,
+    logger,
+}
+
+return middlewares
+```
+
+Finally, pass middlewares to `applyMiddleware`, which is provided as an enhancer to `createStore`, and create our store instance.
 ```lua
 --[[
     store.lua
