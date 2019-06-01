@@ -19,7 +19,7 @@ install:
   - luarocks install luacov-coveralls
 
 script:
-  - luacheck --std max+busted *.lua spec
+  - luacheck --std max+busted spec
   - busted --verbose --coverage
 
 branches:
