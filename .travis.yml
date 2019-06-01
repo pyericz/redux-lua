@@ -1,15 +1,13 @@
 language: c
 sudo: false
 
+env:
+  - LUA="lua=5.1"
+  - LUA="lua=5.2"
+  - LUA="lua=5.3"
+  
 install:
   - luarocks install lredux
-
-addons:
-  apt:
-    packages:
-    - lua5.1
-    - lua5.2
-    - lua5.3
 
 branches:
   only:
