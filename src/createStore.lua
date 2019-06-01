@@ -1,5 +1,5 @@
 local Logger = require 'lredux.utils.logger'
-local Object = require 'lredux.helpers.table'
+local Object = require 'lredux.object'
 local Array = require 'lredux.helpers.array'
 local ActionTypes = require 'lredux.utils.actionTypes'
 local isPlainObject = require 'lredux.utils.isPlainObject'
