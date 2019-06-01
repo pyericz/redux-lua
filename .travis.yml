@@ -2,12 +2,14 @@ language: c
 sudo: false
 
 env:
-  global:
-    - LUAROCKS=2.3.0
-  matrix:
     - LUA=lua5.1
     - LUA=lua5.2
     - LUA=lua5.3
+  
+before_install:
+  - pip install hererocks
+  - hererocks lua_install -r^ --$LUA
+  - export PATH=$PATH:$PWD/lua_install/bin
   
 install:
   - luarocks install lredux
