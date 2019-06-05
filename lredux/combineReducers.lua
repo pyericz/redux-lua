@@ -1,12 +1,20 @@
 local Logger = require 'lredux.utils.logger'
 local Env = require 'lredux.env'
-local Table = require 'lredux.helpers.table'
-local Inspect = require 'inspect'
+local inspect = require 'lredux.utils.inspect'
 local ActionTypes = require 'lredux.utils.actionTypes'
 local isPlainObject = require 'lredux.utils.isPlainObject'
 local Null = require 'lredux.null'
 
 local concat = table.concat
+
+local function keys(tbl)
+    assert(type(tbl) == 'table', 'expected a table value.')
+    local keys = {}
+    for k, _ in pairs(tbl) do
+        table.insert(keys, k)
+    end
+    return keys
+end
 
 local function getNilStateErrorMessage(key, action)
     local actionType = action and action.type or nil
@@ -26,7 +34,7 @@ local function getUnexpectedStateShapeWarningMessage(
     unexpectedKeyCache
     )
 
-    local reducerKeys = Table.keys(reducers)
+    local reducerKeys = keys(reducers)
     local argumentName = 'previous state received by the reducer'
     if action and action.type == ActionTypes.INIT then
         argumentName = 'preloadedState argument passed to createStore'
@@ -45,7 +53,7 @@ local function getUnexpectedStateShapeWarningMessage(
             [[Expected argument to be an object with the following keys: "%s".]]
         },
             argumentName,
-            Inspect(inputState, {depth = 1}),
+            inspect(inputState, {depth = 1}),
             table.concat(reducerKeys, '", "')
         )
     end
@@ -131,7 +139,7 @@ local function combineReducers(reducers)
         end
     end
 
-    local finalReducerKeys = Table.keys(finalReducers)
+    local finalReducerKeys = keys(finalReducers)
 
     -- This is used to make sure we don't warn about the same
     -- keys multiple times.

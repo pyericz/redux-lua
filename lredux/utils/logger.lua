@@ -1,4 +1,4 @@
-local Inspect = require 'inspect'
+local inspect = require 'lredux.utils.inspect'
 local Logger = {}
 local Env = require 'lredux.env'
 
@@ -11,7 +11,7 @@ local function prettyPrint(tag, ...)
     local msgs = {...}
     for i=1, #msgs do
         if type(msgs[i]) ~= 'string' then
-            msgs[i] = Inspect(msgs[i])
+            msgs[i] = inspect(msgs[i])
         end
     end
     print(tag, unpack(msgs))
@@ -23,7 +23,7 @@ local function prettyPrintTrace(tag, ...)
     local msgs = {...}
     for i=1, #msgs do
         if type(msgs[i]) ~= 'string' then
-            msgs[i] = Inspect(msgs[i])
+            msgs[i] = inspect(msgs[i])
         end
     end
     print(tag, unpack(msgs))
