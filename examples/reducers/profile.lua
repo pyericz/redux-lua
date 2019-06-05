@@ -17,6 +17,9 @@ local handlers = {
             age = action.age
         })
     end,
+    ["PROFILE_DONE"] = function (state, action)
+        return Null
+    end
 }
 
 return function (state, action)

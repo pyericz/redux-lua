@@ -14,6 +14,13 @@ function actions.updateAge(age)
     }
 end
 
+function actions.done()
+    return {
+        type = "PROFILE_DONE",
+    }
+end
+
+
 function actions.thunkCall()
     return function (dispatch, state)
         return dispatch(actions.updateAge(3))

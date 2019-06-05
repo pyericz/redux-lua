@@ -1,28 +1,20 @@
 local ProfileActions = require 'examples.actions.profile'
--- local inspect = require 'inspect'
 local store = require 'examples.store'
-
--- local function callback()
---     print(inspect(store.getState()))
--- end
-
--- -- subscribe dispatching
--- local unsubscribe = store.subscribe(callback)
-
--- -- dispatch actions
--- store.dispatch(ProfileActions.updateAge(10))
--- store.dispatch(ProfileActions.thunkCall())
-
--- -- unsubscribe
--- unsubscribe()
-
 
 describe('lredux', function ()
     describe('state', function ()
-        it('works', function ()
+        it('init state', function ()
+            assert.equals(next(store.getState()), nil)
+        end)
+        it('dispatch', function ()
             store.dispatch(ProfileActions.updateName('Jack'))
-            local state = store.getState()
-            assert.equals(state.profile.name, 'Jack')
+            assert.equals(store.getState().profile.name, 'Jack')
+
+            store.dispatch(ProfileActions.updateAge(10))
+            assert.equals(store.getState().profile.age, 10)
+            
+            store.dispatch(ProfileActions.done())
+            assert.equals(next(store.getState()), nil)
         end)
     end)
 end)
