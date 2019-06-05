@@ -1,5 +1,5 @@
 local Array = require 'lredux.helpers.array'
-local Object = require 'lredux.object'
+local assign = require 'lredux.helpers.assign'
 local compose = require 'lredux.compose'
 
 local unpack = unpack or table.unpack
@@ -47,7 +47,7 @@ local function applyMiddleware(...)
             )
             dispatch = compose(unpack(chain))(store.dispatch)
 
-            return Object.assign({}, store, {
+            return assign({}, store, {
                 dispatch = dispatch
             })
         end

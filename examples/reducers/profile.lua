@@ -1,4 +1,4 @@
-local Object = require 'lredux.object'
+local assign = require 'lredux.helpers.assign'
 local Null = require 'lredux.null'
 
 local initState = {
@@ -8,12 +8,12 @@ local initState = {
 
 local handlers = {
     ["PROFILE_UPDATE_NAME"] = function (state, action)
-        return Object.assign(initState, state, {
+        return assign(initState, state, {
             name = action.name
         })
     end,
     ["PROFILE_UPDATE_AGE"] = function (state, action)
-        return Object.assign(initState, state, {
+        return assign(initState, state, {
             age = action.age
         })
     end,

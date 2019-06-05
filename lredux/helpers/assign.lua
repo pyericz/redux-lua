@@ -1,6 +1,4 @@
-local Object = {}
-
-function Object.assign(target, ...)
+return function (target, ...)
     local args = {...}
     for i=1, #args do
         local tbl = args[i]
@@ -10,5 +8,3 @@ function Object.assign(target, ...)
     end
     return target
 end
-
-return Object
