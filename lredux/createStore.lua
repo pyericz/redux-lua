@@ -1,5 +1,5 @@
 local Logger = require 'lredux.utils.logger'
-local Object = require 'lredux.object'
+local assign = require 'lredux.helpers.assign'
 local Array = require 'lredux.helpers.array'
 local ActionTypes = require 'lredux.utils.actionTypes'
 local isPlainObject = require 'lredux.utils.isPlainObject'
@@ -68,7 +68,7 @@ local function createStore(reducer, preloadState, enhancer)
     --]]
     local function ensureCanMutateNextListeners()
         if nextListeners == currentListeners then
-            nextListeners = Object.assign({}, currentListeners)
+            nextListeners = assign({}, currentListeners)
         end
     end
 
