@@ -12,7 +12,7 @@ describe('lredux', function ()
 
             store.dispatch(ProfileActions.updateAge(10))
             assert.equals(store.getState().profile.age, 10)
-            
+
             store.dispatch(ProfileActions.done())
             assert.equals(next(store.getState()), nil)
         end)
