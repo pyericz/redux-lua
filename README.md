@@ -174,7 +174,7 @@ return store
     main.lua
 --]]
 local ProfileActions = require 'actions.profile'
-local inspect = require 'inspect'
+local inspect = require 'lredux.helpers.inspect'
 local store = require 'store'
 
 local function callback()
