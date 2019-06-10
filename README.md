@@ -10,7 +10,7 @@ luarocks install lredux
 ```
 
 ## Usage
-Here is an example of profile updating. To handle state changes, it is recommended to use [redux-props](https://github.com/pyericz/redux-props). To get more usages, please checkout [examples](https://github.com/pyericz/redux-lua/tree/master/examples). 
+Here is an example of profile updating. To handle redux state changes, it is recommended to use [redux-props](https://github.com/pyericz/redux-props). To get more usages, please checkout [examples](https://github.com/pyericz/redux-lua/tree/master/examples). 
 
 ### Define actions
 ```lua
