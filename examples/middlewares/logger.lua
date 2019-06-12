@@ -1,4 +1,4 @@
-local Logger = require 'lredux.utils.logger'
+local Logger = require 'src.utils.logger'
 
 local function logger(store)
     return function (nextDispatch)

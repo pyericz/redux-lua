@@ -1,19 +1,20 @@
-local Logger = require 'lredux.utils.logger'
-local Env = require 'lredux.env'
-local inspect = require 'lredux.utils.inspect'
-local ActionTypes = require 'lredux.utils.actionTypes'
-local isPlainObject = require 'lredux.utils.isPlainObject'
-local Null = require 'lredux.null'
+local directory = (...):match("(.-)[^%.]+$")
+local Logger = require(directory..'utils.logger')
+local Env = require(directory..'env')
+local inspect = require(directory..'utils.inspect')
+local ActionTypes = require(directory..'utils.actionTypes')
+local isPlainObject = require(directory..'utils.isPlainObject')
+local Null = require(directory..'null')
 
 local concat = table.concat
 
 local function keys(tbl)
     assert(type(tbl) == 'table', 'expected a table value.')
-    local keys = {}
+    local ret = {}
     for k, _ in pairs(tbl) do
-        table.insert(keys, k)
+        table.insert(ret, k)
     end
-    return keys
+    return ret
 end
 
 local function getNilStateErrorMessage(key, action)

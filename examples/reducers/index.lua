@@ -1,4 +1,4 @@
-local combineReducers = require 'lredux.combineReducers'
+local combineReducers = require 'src.combineReducers'
 local profile = require 'examples.reducers.profile'
 
 return combineReducers({
