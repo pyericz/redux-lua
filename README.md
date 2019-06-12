@@ -4,9 +4,9 @@
 Originally, [redux](https://redux.js.org/) is a predictable state container for JavaScript apps. From now on, all the redux features are available on your Lua projects. Try it out! :-D
 
 ## Install 
-redux-lua can be installed using LuaRocks ([http://luarocks.org/modules/pyericz/lredux](http://luarocks.org/modules/pyericz/lredux)):
+redux-lua can be installed using LuaRocks ([http://luarocks.org/modules/pyericz/redux-lua](http://luarocks.org/modules/pyericz/redux-lua)):
 ```
-luarocks install lredux
+$ luarocks install redux-lua
 ```
 
 ## Usage
@@ -53,8 +53,8 @@ return actions
 --[[
     reducers/profile.lua
 --]]
-local assign = require 'lredux.helpers.assign'
-local Null = require 'lredux.null'
+local assign = require 'redux.helpers.assign'
+local Null = require 'redux.null'
 
 local initState = {
     name = '',
@@ -94,7 +94,7 @@ end
 --[[
     reducers/index.lua
 --]]
-local combineReducers = require 'lredux.combineReducers'
+local combineReducers = require 'redux.combineReducers'
 local profile = require 'reducers.profile'
 
 return combineReducers({
@@ -107,7 +107,7 @@ return combineReducers({
 --[[
     store.lua
 --]]
-local createStore = require 'lredux.createStore'
+local createStore = require 'redux.createStore'
 local reducers = require 'reducers.index'
 
 local store = createStore(reducers)
@@ -121,7 +121,7 @@ Here is an example about how to define a middleware.
 --[[
     middlewares/logger.lua
 --]]
-local Logger = require 'lredux.utils.logger'
+local Logger = require 'redux.utils.logger'
 
 local function logger(store)
     return function (nextDispatch)
@@ -159,9 +159,9 @@ Finally, pass middlewares to `applyMiddleware`, which is provided as an enhancer
 --[[
     store.lua
 --]]
-local createStore = require 'lredux.createStore'
+local createStore = require 'redux.createStore'
 local reducers = require 'reducers.index'
-local applyMiddleware = require 'lredux.applyMiddleware'
+local applyMiddleware = require 'redux.applyMiddleware'
 local middlewares = require 'middlewares.index'
 
 local store = createStore(reducers, applyMiddleware(table.unpack(middlewares)))
@@ -174,7 +174,7 @@ return store
     main.lua
 --]]
 local ProfileActions = require 'actions.profile'
-local inspect = require 'lredux.helpers.inspect'
+local inspect = require 'redux.helpers.inspect'
 local store = require 'store'
 
 local function callback()
@@ -196,7 +196,7 @@ unsubscribe()
 ### Debug mode
 redux-lua is on `Debug` mode by default. Messages with errors and warnings will be output when `Debug` mode is on. Use following code to turn it off.
 ```lua
-local Env = require 'lredux.env'
+local Env = require 'redux.env'
 
 Env.setDebug(false)
 ```
@@ -204,7 +204,7 @@ Env.setDebug(false)
 ### Null vs. nil
 `nil` is not allowed as a reducer result. If you want any reducer to hold no value, you can return `Null` instead of `nil`.
 ```lua
-local Null = require 'lredux.null'
+local Null = require 'redux.null'
 ```
 
 
