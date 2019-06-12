@@ -1,6 +1,7 @@
-local Array = require 'lredux.helpers.array'
-local assign = require 'lredux.helpers.assign'
-local compose = require 'lredux.compose'
+local directory = (...):match("(.-)[^%.]+$")
+local Array = require(directory .. 'helpers.array')
+local assign = require(directory .. 'helpers.assign')
+local compose = require(directory .. 'compose')
 
 local unpack = unpack or table.unpack
 --[[

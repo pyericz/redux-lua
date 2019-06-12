@@ -1,5 +1,5 @@
-local assign = require 'lredux.helpers.assign'
-local Null = require 'lredux.null'
+local assign = require 'src.helpers.assign'
+local Null = require 'src.null'
 
 local initState = {
     name = '',

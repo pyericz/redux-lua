@@ -1,8 +1,9 @@
-local Logger = require 'lredux.utils.logger'
-local assign = require 'lredux.helpers.assign'
-local Array = require 'lredux.helpers.array'
-local ActionTypes = require 'lredux.utils.actionTypes'
-local isPlainObject = require 'lredux.utils.isPlainObject'
+local directory = (...):match("(.-)[^%.]+$")
+local Logger = require(directory..'utils.logger')
+local assign = require(directory..'helpers.assign')
+local Array = require(directory..'helpers.array')
+local ActionTypes = require(directory..'utils.actionTypes')
+local isPlainObject = require(directory..'utils.isPlainObject')
 
 local concat = table.concat
 

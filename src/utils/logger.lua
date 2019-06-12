@@ -1,13 +1,12 @@
-local inspect = require 'lredux.utils.inspect'
+local directory = (...):match("(.-)[^%.]+$")
+local inspect = require(directory .. 'inspect')
 local Logger = {}
-local Env = require 'lredux.env'
 
 local unpack = unpack or table.unpack
 
 local print = _G["print"]
 
 local function prettyPrint(tag, ...)
-    if not Env.isDebug() then return end
     local msgs = {...}
     for i=1, #msgs do
         if type(msgs[i]) ~= 'string' then
@@ -19,7 +18,6 @@ local function prettyPrint(tag, ...)
 end
 
 local function prettyPrintTrace(tag, ...)
-    if not Env.isDebug() then return end
     local msgs = {...}
     for i=1, #msgs do
         if type(msgs[i]) ~= 'string' then

@@ -1,4 +1,5 @@
-local Array = require 'lredux.helpers.array'
+local directory = (...):match("(.-)[^%.]+$")
+local Array = require(directory..'helpers.array')
 
 --[[
     Composes single-argument functions from right to left. The rightmost
