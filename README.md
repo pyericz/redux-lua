@@ -4,7 +4,7 @@
 Originally, [redux](https://redux.js.org/) is a predictable state container for JavaScript apps. From now on, all the redux features are available on your Lua projects. Try it out! :-D
 
 ## Install 
-redux-lua can be installed using LuaRocks ([http://luarocks.org/modules/pyericz/redux-lua](http://luarocks.org/modules/pyericz/redux-lua)):
+redux-lua can be installed using [LuaRocks](http://luarocks.org/modules/pyericz/redux-lua):
 ```
 $ luarocks install redux-lua
 ```
